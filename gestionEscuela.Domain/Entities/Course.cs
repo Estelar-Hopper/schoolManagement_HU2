@@ -9,7 +9,11 @@ public class Course
     public int TeacherId { get; set; }
     public int ClassRoom { get; set; }
     public bool CourseActive { get; set; }
+   
+    // Relation with other tables
+    public Teacher Teacher { get; set; }
     
     // Relation 1:n
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+   
 }

@@ -12,4 +12,7 @@ public class Enrollment
     // Relation with other tables:
     public Student Student { get; set; }
     public Course Course { get; set; }
+    
+    // Relations 1:1 
+    public Grade Grade { get; set; }
 }

@@ -60,7 +60,6 @@ public class CourseRepository : IGenericRepository<Course>
         existing.CourseName = course.CourseName;
         existing.CourseCode = course.CourseCode;
         existing.TeacherId = course.TeacherId;
-        existing.ClassRoom = course.ClassRoom;
         existing.CourseActive = course.CourseActive;
 
         await _context.SaveChangesAsync();

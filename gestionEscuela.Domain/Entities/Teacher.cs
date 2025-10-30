@@ -2,6 +2,7 @@ namespace gestionEscuela.Domain.Entities;
 
 public class Teacher : Person
 {
+    public int Id { get; set; }
     public int TeacherCode { get; set; }
     public string Career { get; set; }
     

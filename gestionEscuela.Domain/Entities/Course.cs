@@ -7,7 +7,6 @@ public class Course
     public string CourseName { get; set; }
     public string CourseCode { get; set; }
     public int TeacherId { get; set; }
-    public int ClassRoom { get; set; }
     public bool CourseActive { get; set; }
    
     // Relation with other tables
@@ -15,5 +14,8 @@ public class Course
     
     // Relation 1:n
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+    
+    // Relation 1:1
+    public Schedule Schedule { get; set; }
    
 }

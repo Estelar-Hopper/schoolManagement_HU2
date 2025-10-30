@@ -53,7 +53,6 @@ public class CourseController : ControllerBase
             CourseName = courseDto.CourseName,
             CourseCode = courseDto.CourseCode,
             TeacherId = courseDto.TeacherId,
-            ClassRoom = courseDto.ClassRoom,
             CourseActive = courseDto.CourseActive
         };
 
@@ -78,7 +77,6 @@ public class CourseController : ControllerBase
         existingCourse.CourseName = courseDto.CourseName;
         existingCourse.CourseCode = courseDto.CourseCode;
         existingCourse.TeacherId = courseDto.TeacherId;
-        existingCourse.ClassRoom = courseDto.ClassRoom;
         existingCourse.CourseActive = courseDto.CourseActive;
 
         var updated = await _courseService.UpdateAsync(existingCourse);

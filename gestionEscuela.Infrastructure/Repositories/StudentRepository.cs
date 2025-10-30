@@ -60,7 +60,6 @@ public class StudentRepository : IStudentRepository
         existing.DocuNumber = student.DocuNumber;
         existing.Email = student.Name;
         existing.StudentCode = student.StudentCode;
-        existing.Grade = student.Grade;
 
         await _context.SaveChangesAsync();
         return existing;

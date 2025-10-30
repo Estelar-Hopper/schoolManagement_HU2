@@ -51,11 +51,10 @@ public class StudentController : ControllerBase
         var student = new Student
         {
             Name = studentDto.Name,
-            DocuNumber = studentDto.DocNumber,
+            DocuNumber = studentDto.DocuNumber,
             Email = studentDto.Email,
             Phone = studentDto.Phone,
             StudentCode = studentDto.StudentCode,
-            Grade = studentDto.Grade
         };
         
         var createdStudent = await _studentService.CreateAsync(student);
@@ -76,11 +75,10 @@ public class StudentController : ControllerBase
             return NotFound(new { message = $"Student with ID {id} not found." });
 
         existingStudent.Name = studentDto.Name;
-        existingStudent.DocuNumber = studentDto.DocNumber;
+        existingStudent.DocuNumber = studentDto.DocuNumber;
         existingStudent.Email = studentDto.Email;
         existingStudent.Phone = studentDto.Phone;
         existingStudent.StudentCode = studentDto.StudentCode;
-        existingStudent.Grade = studentDto.Grade;
         
 
         var updated = await _studentService.UpdateAsync(existingStudent);

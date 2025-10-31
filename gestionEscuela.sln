@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gestionEscuela.Domain", "ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gestionEscuela.Infrastructure", "gestionEscuela.Infrastructure\gestionEscuela.Infrastructure.csproj", "{09EB9525-24E6-4333-80D3-ADAF312A6303}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gestionEscuela.Tests", "gestionEscuela.Tests\gestionEscuela.Tests.csproj", "{F4167F92-5C41-4292-B8A6-4BD25AFCA048}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{09EB9525-24E6-4333-80D3-ADAF312A6303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09EB9525-24E6-4333-80D3-ADAF312A6303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09EB9525-24E6-4333-80D3-ADAF312A6303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4167F92-5C41-4292-B8A6-4BD25AFCA048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4167F92-5C41-4292-B8A6-4BD25AFCA048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4167F92-5C41-4292-B8A6-4BD25AFCA048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4167F92-5C41-4292-B8A6-4BD25AFCA048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

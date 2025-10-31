@@ -21,6 +21,11 @@ builder.Services.AddScoped<CourseService>();
 builder.Services.AddScoped<IGenericRepository<Enrollment>, EnrollmentRepository>();
 builder.Services.AddScoped<EnrollmentService>();
 
+builder.Services.AddScoped<IGenericRepository<Teacher>, TeacherRepository>();
+builder.Services.AddScoped<TeacherService>();
+
+builder.Services.AddScoped<IGenericRepository<Grade>, GradeRepository>();
+builder.Services.AddScoped<GradeService>();
 //----------------------------------------------------
 
 // Add services to the container.

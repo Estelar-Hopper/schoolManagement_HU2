@@ -44,7 +44,7 @@ public class CourseRepository : IGenericRepository<Course>
         catch (Exception ex)
         {
             Console.WriteLine($"It has presented an error. Error {ex.Message}");
-            return null;
+            throw;
         }
     }
 

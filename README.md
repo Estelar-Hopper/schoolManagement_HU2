@@ -13,6 +13,7 @@
 * [Architecture and Organization (DDD)](#architecture-and-organization-ddd)
 * [Technologies and Dependencies](#technologies-and-dependencies)
 * [Prerequisites](#prerequisites)
+* [Diagrams](#diagrams)
 * [Database Setup (Deployed with Docker)](#database-setup-deployed-with-docker)
 * [Run the Project Locally](#run-the-project-locally)
 * [Database Migrations and Initialization](#database-migrations-and-initialization)
@@ -65,7 +66,32 @@ On your development environment, make sure you have:
 * .NET SDK (matching the project, e.g., .NET 7 or .NET 8) — [https://dotnet.microsoft.com](https://dotnet.microsoft.com)
 * EF Core tools: `dotnet tool install --global dotnet-ef`
 * Docker (for database container)
-* MySQL client (optional)
+* MySQL (local or cloud service. In our case we used a db deployed on Aiven.)
+
+
+## Special Notation:
+If you are having troubles with the project, such as the next example, 
+
+![imagen fallo](./docs/Images/fallo1.png)
+
+![imagen fallo](./docs/Images/fallo2.png)
+
+you can solve in this way:
+1) This issue is due to, Rider is searching the folder where it is installed .NET, if this program is in other location, the issue has presented.
+2) You need to enter on your Rider IDE with the project open it, on the next route: File → Settings → Build, Execution, Deployment → Toolset and Build
+3) Change the location where your .NET it has installed, for instance, the error of the image is due to Rider is searching a folder named C:/Program Files /... but this route isn't exists on linux, so, we need to chage the location to the other one as the next image shows.
+   ![imagen fallo](./docs/Images/solucion.png)
+4) Clic on "Save" and the project works successfuly.
+
+## Diagrams
+### Entity Relational Model
+![MER](./docs/Diagrams/DiagramaRelacional.png.png)
+
+### UMD Diagram
+![UML](./docs/Diagrams/DiagramaUML.png.png)
+
+### Use Cases Diagram
+![Use Cases](./docs/Diagrams/CasoDeUso.png.png)
 
 ## Database Setup (Deployed with Docker)
 
@@ -176,6 +202,8 @@ By default, the API will listen on ports configured in `launchSettings.json`. Yo
 ## Database Migrations and Initialization
 
 Ensure your connection string is properly configured before running migrations.
+
+It is fairly important emphasize that our project has a database deployed on the cloud, using Aiven Services, hence, if you are using our appsettings.json with our credentials, is not necesary to do and creating a local migration each time. 
 
 ### Create a new migration
 

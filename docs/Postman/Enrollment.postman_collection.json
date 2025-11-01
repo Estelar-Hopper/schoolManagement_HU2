@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "99adf892-a7cc-4213-a019-58d2b7aa939e",
+		"name": "Enrollment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46347977",
+		"_collection_link": "https://andrea-6253296.postman.co/workspace/H2-proof~a60507bf-26b9-4db6-9289-1e9283af7ffa/collection/46347977-99adf892-a7cc-4213-a019-58d2b7aa939e?action=share&source=collection_link&creator=46347977"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5242/api/Enrollment/getAll",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Enrollment/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Enrollment",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Enrollment/create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 2,\n  \"courseId\": 5,\n  \"inscriptionDate\": \"2025-10-31T15:43:52.592Z\",\n  \"status\": \"True\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Enrollment/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Enrollment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Enrollment/update/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 2,\n  \"courseId\": 5,\n  \"inscriptionDate\": \"2025-10-31T15:46:24.156Z\",\n  \"status\": \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Enrollment/Delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Enrollment",
+						"Delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Enrollment/update/2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Enrollment/getById/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Enrollment",
+						"getById",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Enrollment/update/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Enrollment/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Enrollment",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

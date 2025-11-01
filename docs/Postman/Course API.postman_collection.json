@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "7fb0d8df-43f6-4297-8ab2-f14dfff05621",
+		"name": "Course API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46347977",
+		"_collection_link": "https://andrea-6253296.postman.co/workspace/H2-proof~a60507bf-26b9-4db6-9289-1e9283af7ffa/collection/46347977-7fb0d8df-43f6-4297-8ab2-f14dfff05621?action=share&source=collection_link&creator=46347977"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5242/api/Course/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Course/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Course",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Course/getById/5",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Course/getById/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Course",
+						"getById",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Course/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseName\": \"Java\",\n  \"courseCode\": \"04\",\n  \"teacherId\": 2,\n  \"courseActive\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Course/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Course",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Course/update/6",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseName\": \"Java 1\",\n  \"courseCode\": \"09\",\n  \"teacherId\": 2,\n  \"courseActive\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Course/update/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Course",
+						"update",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Course/delete/6",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Course/delete/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Course",
+						"delete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

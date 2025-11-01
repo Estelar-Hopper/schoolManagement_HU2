@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "3bb824ae-b486-42ed-a215-11702a93ee02",
+		"name": "Student API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46347977",
+		"_collection_link": "https://andrea-6253296.postman.co/workspace/H2-proof~a60507bf-26b9-4db6-9289-1e9283af7ffa/collection/46347977-3bb824ae-b486-42ed-a215-11702a93ee02?action=share&source=collection_link&creator=46347977"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5242/api/Student/getById/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Student/getById/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Student",
+						"getById",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Student/getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Student/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Student",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Student/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test\",\n  \"docuNumber\": \"56464646\",\n  \"email\": \"test@email.com\",\n  \"phone\": \"15656\",\n  \"studentCode\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Student/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Student",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Student/getById/7",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test up\",\n  \"docuNumber\": \"4242\",\n  \"email\": \"new@email.com\",\n  \"phone\": \"545645\",\n  \"studentCode\": 19\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Student/update/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Student",
+						"update",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5242/api/Student/delete/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5242/api/Student/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Student",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

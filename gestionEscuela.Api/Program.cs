@@ -10,7 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // Other injections:
-builder.Services.AddControllers();
+
+// Añadimos opciones al serializador JSON
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    // Le dice al serializador que maneje referencias circulares (ciclos)
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
 
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<StudentService>();
@@ -26,6 +32,9 @@ builder.Services.AddScoped<TeacherService>();
 
 builder.Services.AddScoped<IGenericRepository<Grade>, GradeRepository>();
 builder.Services.AddScoped<GradeService>();
+
+builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
+builder.Services.AddScoped<ScheduleService>();
 //----------------------------------------------------
 
 // Add services to the container.

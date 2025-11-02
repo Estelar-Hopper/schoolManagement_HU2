@@ -102,4 +102,29 @@ public class EnrollmentController : ControllerBase
         return NoContent();
     }
     
+    
+    // 1. GET ALL COURSES WHERE IS ENROLLED ONE STUDENT:
+    [HttpGet("student/{studentId:int}/courses")]
+    public async Task<IActionResult> GetCoursesByStudent(int studentId)
+    {
+        var courses = await _enrollmentService.GetCoursesByStudentIdAsync(studentId);
+
+        if (!courses.Any())
+            return NotFound(new { message = $"No courses found for student ID {studentId}." });
+
+        return Ok(courses);
+    }
+
+// 2. GET ALL STUDENTS THAT ARE ENROLLED IN ONE SPECIFIC COURSE:
+    [HttpGet("course/{courseId:int}/students")]
+    public async Task<IActionResult> GetStudentsByCourse(int courseId)
+    {
+        var students = await _enrollmentService.GetStudentsByCourseIdAsync(courseId);
+
+        if (!students.Any())
+            return NotFound(new { message = $"No students found for course ID {courseId}." });
+
+        return Ok(students);
+    }
+    
 }

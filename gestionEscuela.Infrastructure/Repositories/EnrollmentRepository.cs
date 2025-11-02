@@ -3,84 +3,104 @@ using gestionEscuela.Domain.Repositories;
 using gestionEscuela.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace gestionEscuela.Infrastructure.Repositories;
-
-public class EnrollmentRepository : IGenericRepository<Enrollment>
+namespace gestionEscuela.Infrastructure.Repositories
 {
-    private readonly AppDbContext _context;
 
-    public EnrollmentRepository(AppDbContext context)
+    public class EnrollmentRepository : IEnrollmentRepository
     {
-        _context = context;
-    }
-    
-    
-    // ----------------------------------------------------
-    
-    // INTERFACES TO IMPLEMENT:
-    
-    // GET BY ID:
+        private readonly AppDbContext _context;
 
-    public async Task<Enrollment?> GetByIdAsync(int id)
-    {
-        return await _context.enrollments_tb.FirstOrDefaultAsync(e => e.Id == id);
-    }
-
-    
-    // GET ALL:
-    public async Task<IEnumerable<Enrollment>> GetAllAsync()
-    {
-        return await _context.enrollments_tb.ToListAsync();
-    }
-
-    
-    // CREATE:
-    public async Task<Enrollment> CreateAsync(Enrollment enrollment)
-    {
-        try
+        public EnrollmentRepository(AppDbContext context)
         {
-            _context.enrollments_tb.Add(enrollment);
+            _context = context;
+        }
+
+
+        // ----------------------------------------------------
+
+        // INTERFACES TO IMPLEMENT:
+
+        // GET BY ID:
+
+        public async Task<Enrollment?> GetByIdAsync(int id)
+        {
+            return await _context.enrollments_tb.FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+
+        // GET ALL:
+        public async Task<IEnumerable<Enrollment>> GetAllAsync()
+        {
+            return await _context.enrollments_tb.ToListAsync();
+        }
+
+
+        // CREATE:
+        public async Task<Enrollment> CreateAsync(Enrollment enrollment)
+        {
+            try
+            {
+                _context.enrollments_tb.Add(enrollment);
+                await _context.SaveChangesAsync();
+                return enrollment;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"It has presented an error. Error {ex.Message}");
+                throw;
+            }
+        }
+
+
+        // UPDATE:
+        public async Task<Enrollment?> UpdateAsync(Enrollment enrollment)
+        {
+            var existing = await _context.enrollments_tb.FindAsync(enrollment.Id);
+
+            if (existing == null)
+                return null;
+
+            existing.StudentId = enrollment.StudentId;
+            existing.CourseId = enrollment.CourseId;
+            existing.InscriptionDate = enrollment.InscriptionDate;
+            existing.Status = enrollment.Status;
+
             await _context.SaveChangesAsync();
+
             return enrollment;
         }
-        catch (Exception ex)
+
+
+        // DELETE:
+        public async Task<bool> DeleteAsync(int id)
         {
-            Console.WriteLine($"It has presented an error. Error {ex.Message}");
-            throw;
+            var enrollmentToDelete = await _context.enrollments_tb.FindAsync(id);
+
+            if (enrollmentToDelete == null)
+                return false;
+
+            _context.enrollments_tb.Remove(enrollmentToDelete);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
-    }
 
-    
-    // UPDATE:
-    public async Task<Enrollment?> UpdateAsync(Enrollment enrollment)
-    {
-        var existing = await _context.enrollments_tb.FindAsync(enrollment.Id);
+        public async Task<IEnumerable<Course>> GetCoursesByStudentIdAsync(int studentId)
+        {
+            return await _context.enrollments_tb
+                .Where(e => e.StudentId == studentId)
+                .Include(e => e.Course)
+                .Select(e => e.Course)
+                .ToListAsync();
+        }
 
-        if (existing == null)
-            return null;
-
-        existing.StudentId = enrollment.StudentId;
-        existing.CourseId = enrollment.CourseId;
-        existing.InscriptionDate = enrollment.InscriptionDate;
-        existing.Status = enrollment.Status;
-
-        await _context.SaveChangesAsync();
-        
-        return enrollment;
-    }
-
-    
-    // DELETE:
-    public async Task<bool> DeleteAsync(int id)
-    {
-        var enrollmentToDelete = await _context.enrollments_tb.FindAsync(id);
-
-        if (enrollmentToDelete == null)
-            return false;
-        
-        _context.enrollments_tb.Remove(enrollmentToDelete);
-        await _context.SaveChangesAsync();
-
-        return true;
+        public async Task<IEnumerable<Student>> GetStudentsByCourseIdAsync(int courseId)
+        {
+            return await _context.enrollments_tb
+                .Where(e => e.CourseId == courseId)
+                .Include(e => e.Student)
+                .Select(e => e.Student)
+                .ToListAsync();
+        }
     }
 }

@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "7ecdbe4d-ba25-4336-bd4a-7fc4400bbc4a",
+		"name": "schedules",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36758494"
+	},
+	"item": [
+		{
+			"name": "createSchedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseId\": 7,\n  \"day\": \"Martes\",\n  \"startHour\": \"7:00\",\n  \"endHour\": \"8:00\",\n  \"classRoom\": \"1014\",\n  \"studentsAmount\": 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Schedule/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Schedule",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByIdSchedule",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseId\": 8,\n  \"day\": \"Martes\",\n  \"startHour\": \"7:00\",\n  \"endHour\": \"8:00\",\n  \"classRoom\": \"1014\",\n  \"studentsAmount\": 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Schedule/getById/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Schedule",
+						"getById",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": 8,\n  \"day\": \"Martes\",\n  \"startHour\": \"7:00\",\n  \"endHour\": \"8:00\",\n  \"classRoom\": \"1014\",\n  \"studentsAmount\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5242/api/Schedule/getById/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"Schedule",
+								"getById",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 02 Nov 2025 02:54:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"$id\": \"1\",\n    \"id\": 2,\n    \"courseId\": 7,\n    \"day\": \"Martes\",\n    \"startHour\": \"07:00:00\",\n    \"endHour\": \"08:00:00\",\n    \"classRoom\": \"1014\",\n    \"studentsAmount\": 25,\n    \"course\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "byCourseSchedule",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Schedule/byCourse/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Schedule",
+						"byCourse",
+						"7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5242/api/Schedule/byCourse/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"Schedule",
+								"byCourse",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 02 Nov 2025 03:03:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"$id\": \"1\",\n    \"id\": 2,\n    \"courseId\": 7,\n    \"day\": \"Martes\",\n    \"startHour\": \"07:00:00\",\n    \"endHour\": \"08:00:00\",\n    \"classRoom\": \"1014\",\n    \"studentsAmount\": 25,\n    \"course\": {\n        \"$id\": \"2\",\n        \"id\": 7,\n        \"courseName\": \"Danza árabe\",\n        \"courseCode\": \"555544\",\n        \"teacherId\": 3,\n        \"courseActive\": true,\n        \"teacher\": null,\n        \"enrollments\": {\n            \"$id\": \"3\",\n            \"$values\": []\n        },\n        \"schedule\": {\n            \"$ref\": \"1\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "updateSchedule",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseId\": 7,\n  \"day\": \"Viernes\",\n  \"startHour\": \"7:00\",\n  \"endHour\": \"8:00\",\n  \"classRoom\": \"1014\",\n  \"studentsAmount\": 19\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5242/api/Schedule/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5242",
+					"path": [
+						"api",
+						"Schedule",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": 7,\n  \"day\": \"Viernes\",\n  \"startHour\": \"7:00\",\n  \"endHour\": \"8:00\",\n  \"classRoom\": \"1014\",\n  \"studentsAmount\": 19\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5242/api/Schedule/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"Schedule",
+								"update",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 02 Nov 2025 03:10:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

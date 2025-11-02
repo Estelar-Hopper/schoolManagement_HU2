@@ -18,14 +18,19 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
 });
 
+// Dependency injections for specific repositories:
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<StudentService>();
 
+builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+builder.Services.AddScoped<EnrollmentService>();
+
+builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
+builder.Services.AddScoped<ScheduleService>();
+
+// Dependency injectios using the IGenericRepository:
 builder.Services.AddScoped<IGenericRepository<Course>, CourseRepository>();
 builder.Services.AddScoped<CourseService>();
-
-builder.Services.AddScoped<IGenericRepository<Enrollment>, EnrollmentRepository>();
-builder.Services.AddScoped<EnrollmentService>();
 
 builder.Services.AddScoped<IGenericRepository<Teacher>, TeacherRepository>();
 builder.Services.AddScoped<TeacherService>();
@@ -33,8 +38,7 @@ builder.Services.AddScoped<TeacherService>();
 builder.Services.AddScoped<IGenericRepository<Grade>, GradeRepository>();
 builder.Services.AddScoped<GradeService>();
 
-builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
-builder.Services.AddScoped<ScheduleService>();
+
 //----------------------------------------------------
 
 // Add services to the container.

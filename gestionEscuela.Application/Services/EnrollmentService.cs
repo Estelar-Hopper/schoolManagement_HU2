@@ -5,9 +5,9 @@ namespace gestionEscuela.Application.Services;
 
 public class EnrollmentService
 {
-    private readonly IGenericRepository<Enrollment> _enrollmentRepository;
+    private readonly IEnrollmentRepository _enrollmentRepository;
 
-    public EnrollmentService(IGenericRepository<Enrollment> enrollmentRepository)
+    public EnrollmentService(IEnrollmentRepository enrollmentRepository)
     {
         _enrollmentRepository = enrollmentRepository;
     }
@@ -60,5 +60,19 @@ public class EnrollmentService
 
         return await _enrollmentRepository.DeleteAsync(id);
     }
+    
+    // GET ALL COURSES WHERE IS ENROLLED ONE STUDENT:
+    public async Task<IEnumerable<Course>> GetCoursesByStudentIdAsync(int studentId)
+    {
+        return await _enrollmentRepository.GetCoursesByStudentIdAsync(studentId);
+    }
+
+    // GET ALL STUDENTS THAT ARE ENROLLED IN ONE SPECIFIC COURSE:
+    public async Task<IEnumerable<Student>> GetStudentsByCourseIdAsync(int courseId)
+    {
+        return await _enrollmentRepository.GetStudentsByCourseIdAsync(courseId);
+    }
+
+    
     
 }

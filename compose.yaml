@@ -1,0 +1,11 @@
+services:
+  gestionescuela.api:
+    image: gestionescuela.api
+    build:
+      context: .
+      dockerfile: gestionEscuela.Api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
